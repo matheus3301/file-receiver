@@ -97,7 +97,7 @@
         for(var i = 0; i < files.length;i++){
             toUpload += files[i];    
 
-            $(".uploaded").html($(".uploaded").html()+'<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><span class="fileName">'+files[i].name+'</span></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.png" alt="Status" ></div></div>');
+            $(".uploaded").html('<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><span class="fileName">'+files[i].name+'</span></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.gif" alt="Status" ></div></div>'+$(".uploaded").html());
         
             uploadFiles(files[i],i);
         }
