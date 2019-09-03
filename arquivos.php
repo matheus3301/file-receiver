@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:auto">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +10,16 @@
 
 
 </head>
-<body onload="loadContent('')">
+<body onload="loadContent('uploads/')" style="height:auto">
     <style>
         
     </style>
-    <center><h1 class="title"><a href="index.php">Início</a>/Arquivos</h1></center>
+     <center><h1> <a href="index.php"><img src="assets/folder.png"  style="width:20px;"alt=""></a> Arquivos</h1></center><br>
+    
     <div class="container-lg" style="background-color:lightgray">
             <div class="container-header">
-                    <center><h2>Arquivos Recebidos</h2></center><br>            
-                    <div style="flex:1;background-color:#fff;padding:10px;border-radius:4px;border:1px solid #666;margin-left:10px;margin-right:10px;">Uploads/</div>
+                    <center><h2>Arquivos Recebidos</h2></center>         
+                    <div class="path" id="path"></div>
             </div>
         
             <div class="uploaded" style="background-color:#fff;min-height:350px;border-radius:4px;" >
@@ -43,12 +44,14 @@
                                 dir:dir,                                
                             },
                             beforeSend : function(){
-                                //alert('Enviando');
+                                $("#path").html("<img src='assets/loading.gif' class='loading'><span>Carregando...</span>");
                                 //$("#resultado").html("ENVIANDO...");
                             }
                             })
                             .done(function(msg){
-                                //alert(JSON.stringify(msg));
+                                $("#path").html("<img src='assets/folder.png' onClick=loadContent('uploads/') style='width:24px;margin-top:3px;margin-bottom:3px;margin-left:3px;margin-right:6px;cursor:pointer'><span>"+msg.path+"</span>");
+                                //$("#path").html(msg.path);
+                                
 
                                 loadView(msg);
                                 //$("#resultado").html(msg);
@@ -61,16 +64,18 @@
       
       function loadView(content){
 
+
         $('.uploaded').html("");
+        
         
         //folders
         for(var i = 0; i < content.folders.length; i++ ){
-          $('.uploaded').html($('.uploaded').html()+"<div class='uploadedFile' onClick=loadContent('"+content.folders[i]+"')><img src='assets/folder.png' alt='Pasta'>'"+content.folders[i]+"</div>");
+          $('.uploaded').html($('.uploaded').html()+"<div class='uploadedFile' onClick=loadContent('"+content.path+content.folders[i]+"/')><img src='assets/closedfolder.png' alt='Pasta'>"+content.folders[i]+"</div>");
         }
 
         //files
         for(var i = 0; i < content.files.length; i++ ){
-          $('.uploaded').html($('.uploaded').html()+'<div class="uploadedFile"><img src="assets/folder.png" alt="Pasta">'+content.files[i]+'</div>');
+          $('.uploaded').html($('.uploaded').html()+'<div class="uploadedFile" onClick=window.open("valida/'+content.path+content.files[i]+'")><img src="assets/file.png" alt="Arquivo">'+content.files[i]+'</div>');
         }
       
         

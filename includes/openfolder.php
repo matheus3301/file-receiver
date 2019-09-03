@@ -1,6 +1,6 @@
 <?php
     
-    $path = '../valida/uploads/'.$_GET['dir'];
+    $path = '../valida/'.$_GET['dir'];
     
     $files = array();
     $folders = array();   
@@ -23,7 +23,7 @@
     }
     $diretorio->close();
 
-    $scan = array("folders" => $folders, "files" => $files);
+    $scan = array("folders" => $folders, "files" => $files,"path" => $_GET['dir']);
     
     header('Content-Type: application/json');
 
