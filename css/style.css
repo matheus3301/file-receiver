@@ -19,12 +19,12 @@ html,body{
 
 body{
     background:radial-gradient(#00fa9a, #009afa);
-    background-repeat: no-repeat;
+    
     background-size: cover;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     padding: 20px;
 }
@@ -32,6 +32,19 @@ body{
 h2{
     color:rgba(0, 0, 0,.7);
     font-size: 1.5em;
+}
+a{
+    text-decoration: none;
+}
+.title a{
+    color:#fff;
+    font-size: 40px;
+    
+}
+.title{
+    color:#fff;
+    font-size: 40px;
+    
 }
 .container{
     width: 100%;
@@ -43,7 +56,31 @@ h2{
 
     
 }
+.container-lg{
+    width: 100%;
+    max-width: 750px;
+    
+    margin:30px;
+    
+    border-radius: 4px;
+    min-height: fit-content;
+    height: 100%;
 
+    display: flex;
+    
+    justify-content: initial;
+    flex-direction: column;
+
+
+
+
+    
+}
+
+.container-header{
+    margin-top: 20px;
+    
+}
 span{
     color:#666;
     
@@ -75,4 +112,112 @@ input{
         outline: none;
         cursor: inherit;
         display: block;
+}
+
+.uploaded{
+    margin-top:20px;
+    width: 100%;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-start;
+
+
+
+
+}
+
+.uploadedNow{
+    margin-top:20px;
+    width: 100%;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    
+
+
+
+
+}
+
+.file{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom:20px;
+}
+
+.fileData{
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    
+}
+
+.fileData img{
+
+    width: 30px;
+}
+
+.fileStatus img{
+    width: 30px;
+}
+
+.btnUpload{
+    color:#fff;
+    background-color: rgb(64, 223, 64);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width:400px;
+    border:0;
+    border-radius: 4px;
+    
+    cursor:pointer;
+    
+
+}
+
+.btnUpload:disabled{
+    color:#fff;
+    background-color: rgba(64, 223, 64,0.6);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    border:0;
+    border-radius: 4px;
+
+    cursor: not-allowed;
+    
+
+}
+
+.uploadedFile{
+    
+    border:1px solid #666;
+    
+    max-height: 60px;
+    flex:1;
+    margin:10px;
+    min-width: 40%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    
+
+}
+
+.uploadedFile img{
+    width: 50px;
+    margin:5px;
 }

@@ -12,92 +12,39 @@
 </head>
 <body>
     <style>
-        .uploaded{
-            margin-top:20px;
-        }
-
-        .file{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom:20px;
-        }
-
-        .fileData{
-            display: flex;
-            align-items: center;
-            justify-content: initial;
-            
-        }
-
-        .fileData img{
-
-            width: 30px;
-        }
-
-        .fileStatus img{
-            width: 30px;
-        }
-
-        .btnUpload{
-            color:#fff;
-            background-color: rgb(64, 223, 64);
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            width: 100%;
-            border:0;
-            border-radius: 4px;
-            
-            cursor:pointer;
-            
-
-        }
-
-        .btnUpload:disabled{
-            color:#fff;
-            background-color: rgba(64, 223, 64,0.6);
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            width: 100%;
-            border:0;
-            border-radius: 4px;
-
-            cursor: not-allowed;
-            
-
-        }
+        
     </style>
-  
+  <center><h1>File Receiver</h1></center><br>
   <div class="container">
-        <center><h2>Enviar Arquivos</h2></center><br>
-  <form name="fileUploader" action="valida/upload.php" class="dropzone"><input onChange="addFile(this.files)"type="file" multiple="" class="input" >
-        <div class="message">
-            <span>Solte os arquivos aqui ;-;</span>
-        </div>
+            <center><h2>Enviar Arquivos</h2></center><br>
+            
+            <form name="fileUploader" action="valida/upload.php" class="dropzone"><input onChange="addFile(this.files)"type="file" multiple="" class="input" >
+            <div class="message">
+                <span>Solte os arquivos aqui ;-;</span>
+            </div>
   </form>
-  <div class="uploaded">
+  <div class="uploadedNow">
       
       
     
   </div>
-  <button class="btnUpload" id="btn"onClick="uploadFiles()" disabled>Enviar</button>
+  
         
-   </body>
+   
   </div>
+  <a class="btnUpload" id="btn" href="arquivos.php">Arquivos</a>
   <script src="js/jquery.min.js"></script>
   <script>
-    var toUpload = [];
+    
 
     function addFile(files){
         console.log(files);
         document.getElementById("btn").disabled = false;
 
         for(var i = 0; i < files.length;i++){
-            toUpload += files[i];    
+               
 
-            $(".uploaded").html('<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><span class="fileName">'+files[i].name+'</span></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.gif" alt="Status" ></div></div>'+$(".uploaded").html());
+            $(".uploadedNow").html('<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><span class="fileName">'+files[i].name+'</span></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.gif" alt="Status" ></div></div>'+$(".uploadedNow").html());
         
             uploadFiles(files[i],i);
         }
