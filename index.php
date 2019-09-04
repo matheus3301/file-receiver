@@ -15,7 +15,18 @@
         
     </style>
   <center><h1>File Receiver</h1></center><br>
-  <img src="includes/qrcode.php" alt="Acessar">
+  
+  <?php
+    if($_SERVER['SERVER_ADDR'] == '::1'){?>
+        <img src="includes/qrcode.php" alt="Acessar">
+
+
+    <?php
+        }
+    
+    ?>
+
+
   <div class="container">
             <center><h2>Enviar Arquivos</h2></center><br>
             
