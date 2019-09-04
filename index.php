@@ -15,6 +15,7 @@
         
     </style>
   <center><h1>File Receiver</h1></center><br>
+  <!-- <img src="includes/qrcode.php" alt="Acessar"> -->
   <div class="container">
             <center><h2>Enviar Arquivos</h2></center><br>
             
