@@ -7,6 +7,8 @@
   <title>Enviar Arquivos</title>
   
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/png" href="assets/folder.png" />
+
 
 
 </head>
