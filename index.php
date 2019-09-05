@@ -53,6 +53,8 @@
   <a class="btnUpload" id="btn" href="arquivos.php">Arquivos</a>
   <script src="js/jquery.min.js"></script>
   <script>
+
+      var atualId = 0;
     function formatBytes(bytes, decimals = 2) {
         if (bytes === 0) return '0 Bytes';
 
@@ -72,9 +74,10 @@
         for(var i = 0; i < files.length;i++){
                
 
-            $(".uploadedNow").html('<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><div class="fileInfo"><strong class="fileName">'+files[i].name+'</strong><small>'+formatBytes(files[i].size)+'</small></div></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.gif" alt="Status" ></div></div>'+$(".uploadedNow").html());
-        
+            $(".uploadedNow").html('<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><div class="fileInfo"><strong class="fileName">'+files[i].name+'</strong><small id="porcento'+i+'">'+formatBytes(files[i].size)+'</small></div></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.gif" alt="Status" ></div></div>'+$(".uploadedNow").html());
+            
             uploadFiles(files[i],i);
+            
         }
 
         
@@ -96,7 +99,7 @@
                             xhr: function () {
                                 var myXhr = $.ajaxSettings.xhr();
                                 if (myXhr.upload) {
-                                    //myXhr.upload.addEventListener('progress', that.progressHandling, false);
+                                    myXhr.upload.addEventListener('progress', function(evt){progress(evt,index)}, false);
                                 }
                                 return myXhr;
                             },
@@ -104,12 +107,19 @@
                             type : 'post',
                             
                             beforeSend : function(){
-                                //alert('Enviando');
+                                
                                 //$("#resultado").html("ENVIANDO...");
                             }
                             })
                             .done(function(msg){
-                                $("#img"+index).attr("src","assets/checked.png");
+
+                                if(msg == 'Sucesso'){
+                                    $("#img"+index).attr("src","assets/checked.png");
+
+                                }else{
+                                    $("#img"+index).attr("src","assets/error.png");
+
+                                }
 
                                 console.log(msg);
                                 
@@ -117,6 +127,29 @@
                             .fail(function(jqXHR, textStatus, msg){
                                 alert(msg);
                             });      
+
+    }
+
+    function progress(e,index){
+
+        if(e.lengthComputable){
+        var max = e.total;
+        var current = e.loaded;
+        
+
+        console.log(index,e.loaded,e.total);
+
+        //var Percentage = (current * 100)/max;
+        //console.log(Percentage);
+
+        $('#porcento'+index).html(formatBytes(current)+" de "+formatBytes(max));
+
+
+        // if(Percentage >= 100)
+        // {
+        //    // process completed  
+        // }
+    }  
 
     }
     
