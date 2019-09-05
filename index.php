@@ -19,12 +19,12 @@
   <center><h1>File Receiver</h1></center>
   
   <?php
-    if($_SERVER['SERVER_ADDR'] == '::1'){?>
+    //if($_SERVER['SERVER_ADDR'] == '::1'){?>
         <img src="includes/qrcode.php" alt="Acessar" style="width:20%;">
 
 
     <?php
-        }else{
+        //}else{
     
     ?>
         <div class="container">
@@ -47,7 +47,7 @@
 
     <?php
 
-        }
+      //  }
     ?>
   
   <a class="btnUpload" id="btn" href="arquivos.php">Arquivos</a>
