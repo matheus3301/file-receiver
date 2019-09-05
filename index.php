@@ -16,20 +16,18 @@
     <style>
         
     </style>
-  <center><h1>File Receiver</h1></center><br>
+  <center><h1>File Receiver</h1></center>
   
   <?php
     if($_SERVER['SERVER_ADDR'] == '::1'){?>
-        <img src="includes/qrcode.php" alt="Acessar">
+        <img src="includes/qrcode.php" alt="Acessar" style="width:20%;">
 
 
     <?php
-        }
+        }else{
     
     ?>
-
-
-  <div class="container">
+        <div class="container">
             <center><h2>Enviar Arquivos</h2></center><br>
             
             <form name="fileUploader" action="valida/upload.php" class="dropzone"><input onChange="addFile(this.files)"type="file" multiple="" class="input" >
@@ -46,6 +44,12 @@
         
    
   </div>
+
+    <?php
+
+        }
+    ?>
+  
   <a class="btnUpload" id="btn" href="arquivos.php">Arquivos</a>
   <script src="js/jquery.min.js"></script>
   <script>
