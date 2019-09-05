@@ -9,7 +9,7 @@
             mkdir('uploads');
         }
 
-        if(move_uploaded_file($arquivo['tmp_name'], $src)){
+        if(@move_uploaded_file($arquivo['tmp_name'], $src)){
             echo "Sucesso";
         }else{
             echo "Erro";
