@@ -158,6 +158,16 @@ input{
     justify-content: initial;
     
 }
+.fileInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    
+}
+
+small{
+    font-size: 10px;
+}
 
 .fileData img{
 

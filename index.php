@@ -53,7 +53,17 @@
   <a class="btnUpload" id="btn" href="arquivos.php">Arquivos</a>
   <script src="js/jquery.min.js"></script>
   <script>
-    
+    function formatBytes(bytes, decimals = 2) {
+        if (bytes === 0) return '0 Bytes';
+
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }   
 
     function addFile(files){
         console.log(files);
@@ -62,7 +72,7 @@
         for(var i = 0; i < files.length;i++){
                
 
-            $(".uploadedNow").html('<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><span class="fileName">'+files[i].name+'</span></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.gif" alt="Status" ></div></div>'+$(".uploadedNow").html());
+            $(".uploadedNow").html('<div class="file"><div class="fileData"><img src="assets/mimes/'+files[i].type+'.png"  alt=""><div class="fileInfo"><strong class="fileName">'+files[i].name+'</strong><small>'+formatBytes(files[i].size)+'</small></div></div><div class="fileStatus"><img id="img'+i+'"src="assets/loading.gif" alt="Status" ></div></div>'+$(".uploadedNow").html());
         
             uploadFiles(files[i],i);
         }
