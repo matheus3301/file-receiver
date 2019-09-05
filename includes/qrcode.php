@@ -9,6 +9,6 @@
 
 
     header('Content-Type:image/png');
-    QRcode::png('http://'. $explodedSanitized[1].'/files');
+    QRcode::png('http://'. $explodedSanitized[1].'/files',null,"H",10,2);
 
  ?>
