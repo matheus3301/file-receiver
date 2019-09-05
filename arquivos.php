@@ -171,12 +171,12 @@
         
         //folders
         for(var i = 0; i < content.folders.length; i++ ){
-          $('.uploaded').html($('.uploaded').html()+"<div class='uploadedFile'  onClick=loadContent('"+content.path+content.folders[i]+"/')><img src='assets/closedfolder.png' alt='Pasta'>"+content.folders[i]+"</div>");
+          $('.uploaded').html($('.uploaded').html()+"<div class='uploadedFile'  onClick=loadContent('"+content.path+content.folders[i]+"/')><img src='assets/closedfolder.png' alt='Pasta'><span class='file-name'>"+content.folders[i]+"</span></div>");
         }
 
         //files
         for(var i = 0; i < content.files.length; i++ ){
-          $('.uploaded').html($('.uploaded').html()+'<div class="uploadedFile" oncontextmenu="openMenu('+"'"+content.path+content.files[i]+"'"+',event);return false" onClick=window.open("valida/'+content.path+content.files[i]+'")><img src="assets/file.png" alt="Arquivo">'+content.files[i]+'</div>');
+          $('.uploaded').html($('.uploaded').html()+'<div class="uploadedFile" oncontextmenu="openMenu('+"'"+content.path+content.files[i]+"'"+',event);return false" onClick=window.open("valida/'+content.path+content.files[i]+'")><img src="assets/file.png" alt="Arquivo"><span class="file-name">'+content.files[i]+'</span></div>');
         }
       
         
